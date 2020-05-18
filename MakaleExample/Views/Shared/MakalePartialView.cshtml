@@ -1,0 +1,71 @@
+﻿@using MakaleExample.Entity;
+@using PagedList
+@using PagedList.Mvc
+@model MakaleExample.ViewModels.PartialDataViewModel
+
+<style>
+    .hizala {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .btn-colorr {
+        color: purple !important;
+    }
+
+    .pagination > li {
+    }
+</style>
+
+
+<div class="accordion hizala" id="accordionExample">
+    @for (int i = 0; i < Model.Makaleler.Count; i++)
+    {
+        <div class="card">
+            <div class="card-header" id="heading@(i)">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-colorr" type="button" data-toggle="collapse" data-target="#collapse@(i)" aria-expanded="true" aria-controls="collapseOne">
+                        @Model.Makaleler[i].makale_baslik
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapse@(i)" class="collapse" aria-labelledby="heading@(i)" data-parent="#accordionExample">
+                <div class="card-body">
+                    @Html.Raw(Model.Makaleler[i].makale_icerik)
+                    <div class="d-flex align-bottom justify-content-end" style="color:dimgray; font-size:small;">
+                        @Html.DisplayFor(m => Model.Makaleler[i].tarih)
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="d-flex justify-content-center mt-5">
+    @{
+        var url = ViewBag.Aranan != null ? Model.ActionName.ToString() + ",new {sayfa ,ViewBag.Aranan}" : Model.ActionName.ToString() + ",new { sayfa }";
+    }
+    @if (ViewBag.Aranan == null)
+    {
+        @Html.PagedListPager((IPagedList)Model.Makaleler, sayfa => Url.Action(Model.ActionName, new { sayfa }))
+    }
+    else
+    {
+        @Html.PagedListPager((IPagedList)Model.Makaleler, sayfa => Url.Action(Model.ActionName, new { sayfa , Aranan=ViewBag.Aranan }))
+    }
+</div>
+<script>
+    $('.pagination>li').addClass("page-item");
+    $('.page-item>a').addClass("page-link");
+
+</script>
+
+<script>
+    $('.collapse').on('shown.bs.collapse', function (e) {
+        var $panel = $(this).closest('.card');
+        $('html,body').animate({
+            scrollTop: $panel.offset().top
+        }, 500);
+    });
+</script>

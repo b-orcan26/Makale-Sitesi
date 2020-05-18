@@ -1,0 +1,131 @@
+﻿@using MakaleExample.Entity;
+@using PagedList
+@using PagedList.Mvc
+@model List<Makale>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .list-group-item:hover {
+            background-color: cornflowerblue;
+        }
+
+        .hizala {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .btn-colorr {
+            color: purple !important;
+        }
+
+        .pagination > li {
+        }
+
+    </style>
+    <title>Panel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="list-group mt-5">
+                    <button id="Mvc_btn" type="button" class="list-group-item list-group-item-action">Asp.Net MVC</button>
+                    <button id="Css_btn" type="button" class="list-group-item list-group-item-action">CSS</button>
+                    <button id="Bootstrap_btn" type="button" class="list-group-item list-group-item-action">Bootstrap</button>
+                    <button id="WPF_btn" type="button" class="list-group-item list-group-item-action">WPF</button>
+                    <button id="Android_btn" type="button" class="list-group-item list-group-item-action">Android</button>
+                </div>
+            </div>
+            <div class="col-7 mt-2">
+
+
+                <p>
+                    @Html.ActionLink("Yeni Oluştur", "Ekle")
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Başlık</th>
+                            <th scope="col">Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody id="FilterTable">
+                        @{ int i = 1;}
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Kategoriler.kategori_ad)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.makale_baslik)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tarih)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Guncelle", "Guncelle", new { makale_id = item.makale_id }, htmlAttributes: new { @class = "btn-warning p-2" })
+                                    @Html.ActionLink("Sil", "Sil", new { id = item.makale_id }, htmlAttributes: new { @class = "btn-danger p-2" })
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+    <!--
+    <div class="row justify-content-center mt-5">
+       
+    </div>
+
+    -->
+
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $('.pagination>li').addClass("page-item");
+        $('.page-item>a').addClass("page-link");
+
+    </script>
+
+    <script type="text/javascript">
+        $("#Mvc_btn").click(function () {
+            var rows = $("#FilterTable").find("tr").hide();
+            rows.filter(":contains('Asp.Net Mvc')").show();
+        });
+        $("#Css_btn").click(function () {
+            var rows = $("#FilterTable").find("tr").hide();
+            rows.filter(":contains('CSS')").show();
+        });
+        $("#WPF_btn").click(function () {
+            var rows = $("#FilterTable").find("tr").hide();
+            rows.filter(":contains('WPF')").show();
+        });
+        $("#Bootstrap_btn").click(function () {
+            var rows = $("#FilterTable").find("tr").hide();
+            rows.filter(":contains('Bootstrap')").show();
+        });
+        $("#Android_btn").click(function () {
+            var rows = $("#FilterTable").find("tr").hide();
+            rows.filter(":contains('Android')").show();
+        });
+    </script>
+</body>
+</html>

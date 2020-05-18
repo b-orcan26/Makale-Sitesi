@@ -1,0 +1,15 @@
+﻿@using MakaleExample.Entity;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Makale>
+@{
+    ViewBag.Title = "Mvc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("MakalePartialView", new MakaleExample.ViewModels.PartialDataViewModel
+{
+    Makaleler = @Model,
+    ActionName = @ViewBag.Title
+})

@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <style>
+        .footer-wrapper {
+            position: absolute;
+            bottom: 0;
+            background-image: -webkit-gradient(linear,left top,right top,from(#ff4169),to(#8b41f6));
+            background-image: -webkit-linear-gradient(left,#ff4169 0%,#8b41f6 100%);
+            background-image: linear-gradient(90deg,#ff4169 0%,#8b41f6 100%);
+            background-image: -webkit-gradient(linear,left top,right top,from(#8b41f6),to(#ff4169));
+            background-image: -webkit-linear-gradient(left,#ff4169 0%,#8b41f6 100%);
+            background-image: linear-gradient(90deg,#8b41f6 0%,#ff4169 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="margin:0!important; padding:0!important">
+        
+            <header>
+                @Html.Partial("_Nav")
+            </header>
+            <div style="margin-top:50px;">
+                @RenderBody()
+            </div>
+        
+
+        <footer class="footer-wrapper  " style="height:100px;">
+
+            
+        </footer>
+
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#inpt_search").on('focus', function () {
+                $(this).parent('label').addClass('active');
+                console.log("active");
+            });
+
+            $("#inpt_search").on('blur', function () {
+                if ($(this).val().length == 0) {
+                    $(this).parent('label').removeClass('active');
+                    console.log("slm inactive");
+                    console.log("val 0");
+                }
+                else {
+                    console.log("val > 0");
+                    
+                }
+            });
+            
+
+        });
+    </script>
+</body>
+</html>

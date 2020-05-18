@@ -1,0 +1,300 @@
+﻿
+    <style>
+
+           .site-header {
+               /*   height: 6.25rem;     */
+               height:116px;
+               background-image: -webkit-gradient(linear,left top,right top,from(#ff4169),to(#8b41f6));
+               background-image: -webkit-linear-gradient(left,#ff4169 0%,#8b41f6 100%);
+               background-image: linear-gradient(90deg,#ff4169 0%,#8b41f6 100%);
+           }
+
+           .customBar {
+               background-color: white;
+               position: absolute;
+               top: 85px;
+               right: 10%;
+               left: 10%;
+               height: 7%;
+               
+               border-radius: 8px;
+               font-size: 18px;
+               font-weight: 700;
+               display: block;
+               text-align: center;
+               font-family: sans-serif;
+               letter-spacing: 1px;
+               background-color: #fff;
+               border-radius: 8px;
+               margin: 0px 0 35px;
+           }
+
+           .asdas {
+               display: inline-block;
+               background-color: white;
+           }
+
+           .customText {
+               color: #555 !important;
+               font-family: sans-serif !important;
+               letter-spacing: 1px !important;
+               font-size: 18px !important;
+               font-weight: 700 !important;
+           }
+
+           .customRadiusAndShadow {
+               border-radius: 8px;
+               -webkit-box-shadow: 0px 6px 10px 0px rgba(196,196,196,1);
+               -moz-box-shadow: 0px 6px 10px 0px rgba(196,196,196,1);
+               box-shadow: 0px 6px 10px 0px rgba(196,196,196,1);
+           }
+
+           a {
+               color: #555 ;
+               font-family: sans-serif ;
+               letter-spacing: 1px ;
+               font-size: 18px ;
+               font-weight: 700 ;
+           }
+
+               a:hover {
+                   color: #D81757 !important ;
+               }
+
+           .search {
+           }
+
+               .search * {
+                   outline: none;
+                   box-sizing: border-box;
+               }
+
+           .search__wrapper {
+             
+           }
+
+        .search__field {
+            width: 40px;
+            height: 40px;
+            /*color: deeppink;*/
+            font-family: Lato, sans-serif;
+            font-size: 1.35em;
+            padding: 0.35em 50px 0.35em 0;
+            border: 0;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+
+
+        .search__icon {
+            padding-right: 10px;
+            background-position: center;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            font-size: 1.35em;
+            text-align: center;
+            background-color: deeppink;
+            color: white;
+            border-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            border: 0;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+           
+
+
+           .GeneratedText {
+               font-family: 'Arial Black', sans-serif;
+               font-size: 18px;
+               letter-spacing: 0;
+               line-height: 1.3em;
+               color: #FFFFFF;
+               padding: 1.5em;
+           }
+
+           .colorWhite{
+               color:white;
+           }
+           .btBorderWhite{
+               border-bottom:1px solid gray;
+           }
+
+           .divMR10{
+               margin-right:10%;
+           }
+           i:hover{
+               opacity:0.8;
+               cursor:pointer;
+           }
+
+        .search__field_focus {
+            border-bottom-color: #ccc;
+            width: 15vw;
+            float:left;
+            color: deeppink;
+            cursor: default;
+            
+        }
+
+        .search__icon_focus {
+            background-color: transparent;
+            color: deeppink;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        
+
+    </style>
+
+
+<div class="site-header flex-nowrap " style="width:auto;">
+    <img class=" img-fluid  " src="~/images/bblog.png" style="width:293px; height:90px; margin-left:10%;" />
+    <!--   <p class="ml-0  ml-md-5 d-lg-none text-center pt-3 GeneratedText" style="font-weight:900;">
+           <span><img class="img-fluid d-lg-none" src="~/logo.png" style="width:40px; height:30px;" /></span>
+           bblog
+       </p>-->
+    <div id="social-div" class="float-right align-content-center flex-wrap divMR10 pb-3 d-none d-lg-flex" style="height:inherit;">
+
+        <i class="fa fa-2x  fa-twitter pr-3 colorWhite" style="font-size:1.4em;"></i>
+        <i class="fa fa-2x fa-instagram pr-3 colorWhite" style="font-size:1.4em;"></i>
+        <i class="fa fa-2x fa-facebook  colorWhite " style="font-size:1.4em;"></i>
+
+    </div>
+    <div class="align-self-end mx-auto asdas ">
+        <div class="customBar d-flex">
+            <nav class="navbar navbar-expand-lg  flex-fill bg-white customRadiusAndShadow menu" id="navClass">
+                @Html.ActionLink("Anasayfa","Icerik","Anasayfa",new {@class= "navbar-brand" })              
+                <button id="NavButton" class="navbar-toggler navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!--   style="z-index:1;"     -->
+                <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent" style="z-index:1;">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active mr-2">
+                            @Html.ActionLink("Asp.Net Mvc", "Mvc", "Anasayfa", new { @class = "nav-link" })
+
+                        </li>
+                        <li class="nav-item mr-2">
+                            @Html.ActionLink("Css", "Css", "Anasayfa", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item mr-2">
+                            @Html.ActionLink("Bootstrap", "Bootstrap", "Anasayfa", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item mr-2">
+                            @Html.ActionLink("WPF", "Wpf", "Anasayfa", new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item mr-2">
+                            @Html.ActionLink("Android", "Android", "Anasayfa", new { @class = "nav-link" })
+                        </li>
+                    </ul>
+                    @using (Html.BeginForm("Ara", "Anasayfa" , FormMethod.Get, new { @class = "search d-none d-lg-inline" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="d-flex row " id="ssearch">
+                            <input type="text" required id="srchText" name="Aranan" placeholder="Ara..." value="" class="search__field">
+                            <button type="submit" id="srchBtn" class="fa fa-search  search__icon disabled" style="width:40px;height:40px; margin-right:10px;" />
+
+                        </div>
+
+                    }
+                   
+                    <!--   <a class="nav-link" href="Mvc">Asp.Net Mvc<span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="Css">CSS</a>
+    -->
+
+                </div>
+            </nav>
+
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+ /*
+    $(".search__field").focus(function () {
+        $(".search__field").addClass("search__field_focus");
+        $(".srchBtn").addClass("search__icon_focus");
+    })
+    $(".search__field").blur(function () {
+        $(".search__field").removeClass("search__field_focus");
+        $("#srchBtn").removeClass("search__icon_focus");
+    })
+   */
+
+</script>
+<script>
+
+    $("#ssearch").mouseover(function () {
+        $("#srchBtn").prop('disable', true);
+        $("#srchText").addClass("search__field_focus");
+        $("#srchBtn").addClass("search__icon_focus");
+        $("#srchText").focus();
+        
+    });
+
+    $("#ssearch").mouseleave(function () {
+        $("#srchText").blur();
+        $("#srchText").focusout();
+        $("#srchText").removeClass("search__field_focus");
+        $("#srchBtn").removeClass("search__icon_focus");
+        $("#srchBtn").prop('disable', true);
+        
+    });
+
+  
+    /*
+    $("#srchBtn").mouseover(function () {
+        if ($("#srchText").val().length > 0) {
+            var aranan = $("#srchText").val();  
+         window.location.href = 'Anasayfa/Icerik/Aranan='+aranan;
+         console.log("yonlendir");
+            
+            $("#srchText").removeClass("search__field_focus");
+            $("#srchBtn").removeClass("search__icon_focus");
+            $('#srchText').val('');  
+        }
+        else {
+            $("#srchText").addClass("search__field_focus");
+            $("#srchBtn").addClass("search__icon_focus");
+            $("#srchText").focus();
+        }
+    });
+
+    
+    $("#srchText").blur(function () {
+        $("#srchText").removeClass("search__field_focus");
+        $("#srchBtn").removeClass("search__icon_focus");
+    })
+    */
+
+</script>
+
+
+<script>
+    $("#NavButton").click(function () {
+        $('#navbarSupportedContent').removeClass("bg-white");
+        $('#navbarSupportedContent').addClass("bg-dark");
+        $.linkler = $(document).find(".nav-link");
+        
+        jQuery.each($.linkler, function (index, link) {
+
+                $(this).addClass("colorWhite");
+                $(this).addClass("btBorderWhite");
+
+        });
+
+       
+       
+        
+    });
+</script>
+
