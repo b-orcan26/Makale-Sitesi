@@ -7,4 +7,4 @@
 # Ekran Görüntüleri
 
  ![s1](https://i.hizliresim.com/nKdjkV.jpg)
- ![s2](https://i.hizliresim.com/yAHbia.jpg)
+ ![s2](https://i.hizliresim.com/TQ5Qeh.jpg)
